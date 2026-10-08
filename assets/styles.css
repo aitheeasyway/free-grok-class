@@ -356,3 +356,21 @@ form.reg .btn{justify-content:center;width:100%;margin-top:4px}
 .modal .m-close{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--muted);font-size:20px;cursor:pointer}
 .modal .m-later{margin-top:12px;background:none;border:0;color:var(--muted);font:inherit;font-size:14px;cursor:pointer;text-decoration:underline}
 .clip-frame video.sq{aspect-ratio:1/1}
+
+/* ---- accessibility + launch additions ---- */
+html{scroll-padding-top:96px}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
+.btn:focus-visible{outline-offset:4px;border-radius:999px}
+.field input:focus-visible,.field select:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.fmt-pick input:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+.skip{position:absolute;left:12px;top:-60px;z-index:200;background:var(--teal);color:#06121a;font-weight:700;padding:10px 16px;border-radius:10px;text-decoration:none;transition:top .15s}
+.skip:focus{top:12px}
+.clip-toggle{position:absolute;right:26px;top:26px;z-index:2;display:inline-flex;align-items:center;gap:8px;font:600 14px/1 Inter,system-ui,sans-serif;color:#e9eef7;background:rgba(5,8,18,.78);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:9px 14px;cursor:pointer;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.clip-toggle:hover{border-color:var(--teal);color:var(--teal)}
+@media (max-width:720px){.clip-toggle{right:16px;top:16px;padding:8px 12px;font-size:13px}}
+.next-level{padding-top:20px}
+.next-level .upsell-box{border-color:rgba(46,242,224,.32);background:linear-gradient(135deg,rgba(46,242,224,.08),rgba(255,138,61,.07))}
+.next-level .upsell-box h2{max-width:none}
+.nl-art{display:grid;place-items:center}
+.nl-art img{width:min(280px,80%);height:auto;filter:drop-shadow(0 20px 40px rgba(0,0,0,.5))}
+@media (max-width:720px){.nl-art{order:-1}.nl-art img{width:150px}.next-level .cta-row .btn{width:100%;justify-content:center}}

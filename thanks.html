@@ -8,7 +8,10 @@
 <meta name="robots" content="noindex, nofollow">
 <title>You're registered · Free Grok 101 | AI the Easy Way</title>
 <meta name="theme-color" content="#0a0f1f">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌅</text></svg>">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -28,6 +31,7 @@
   </div>
 </nav>
 
+<main id="main">
 <header class="ty-hero">
   <div class="wrap">
     <div class="ty-art" aria-hidden="true"><picture><source srcset="assets/helpers/helper-wave.webp" type="image/webp"><img src="assets/helpers/helper-wave.png" width="548" height="523" alt=""></picture></div>
@@ -60,12 +64,13 @@
     <div class="tease-card">
       <div class="ic ic-helper" aria-hidden="true"><picture><source srcset="assets/helpers/helper-files.webp" type="image/webp"><img src="assets/helpers/helper-files.png" alt=""></picture></div>
       <div>
-        <h3>Want AI helpers set up for you?</h3>
-        <p>Ask Chris about the hands-on AI Helpers setup class ($97), where we set up your Grok Bot helpers together. No pressure, the free class comes first. <a data-paid href="https://buy.stripe.com/8x2eV52QE9wM2PK5do8AE04" target="_blank" rel="noopener">Grab a hands-on seat ($97) →</a></p>
+        <h3>Ready for the next level?</h3>
+        <p>Want Grok working for you every day? In the hands-on AI Helpers class we set up your own Grok Bot helpers together, so the busywork runs while you work. No pressure, the free class comes first. <a data-sales href="http://mysihelpers.com/">See the hands-on class <span aria-hidden="true">→</span></a></p>
       </div>
     </div>
   </div>
 </section>
+</main>
 
 <!-- Add-to-calendar popup: opens right after registering (thanks.html?s=...) when the session has a date -->
 <div class="modal-bg" id="cal-modal" hidden>
@@ -77,8 +82,8 @@
     <div class="m-when" id="m-when"></div>
     <div class="m-where" id="m-where"></div>
     <div class="m-btns">
-      <a class="btn btn-primary" id="m-gcal" href="#" target="_blank" rel="noopener">📅 Google Calendar</a>
-      <a class="btn btn-ghost" id="m-ics" href="#" download="free-grok-101.ics">🍎 Apple / Outlook (.ics)</a>
+      <a class="btn btn-primary" id="m-gcal" href="#" target="_blank" rel="noopener"><span aria-hidden="true">📅</span> Google Calendar</a>
+      <a class="btn btn-ghost" id="m-ics" href="#" download="free-grok-101.ics"><span aria-hidden="true">🍎</span> Apple / Outlook (.ics)</a>
     </div>
     <button class="m-later" type="button" data-close>Maybe later</button>
   </div>
@@ -133,16 +138,27 @@
       document.getElementById('m-gcal').href = g;
       document.getElementById('m-ics').href = icsUrl;
       const prev = document.activeElement;
-      const close = () => { modal.hidden = true; document.removeEventListener('keydown', onKey); try { sessionStorage.setItem(key,'1'); } catch(e) {} if (prev && prev.focus) prev.focus(); };
-      const onKey = e => { if (e.key === 'Escape') close(); };
+      const main = document.getElementById('main');
+      const close = () => { modal.hidden = true; main.removeAttribute('aria-hidden'); main.inert = false; document.removeEventListener('keydown', onKey); try { sessionStorage.setItem(key,'1'); } catch(e) {} if (prev && prev.focus) prev.focus(); };
+      const onKey = e => {
+        if (e.key === 'Escape') { close(); return; }
+        if (e.key === 'Tab') { // keep focus inside the dialog while it's open
+          const f = [...modal.querySelectorAll('a[href],button:not([disabled])')].filter(x => x.offsetParent !== null);
+          if (!f.length) return;
+          const first = f[0], last = f[f.length-1];
+          if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+          else if (!modal.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+        }
+      };
       modal.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', close));
       modal.addEventListener('click', e => { if (e.target === modal) close(); });
       modal.querySelectorAll('.m-btns a').forEach(a => a.addEventListener('click', () => setTimeout(close, 300)));
       document.addEventListener('keydown', onKey);
-      setTimeout(() => { modal.hidden = false; document.getElementById('m-gcal').focus(); }, 450);
+      setTimeout(() => { modal.hidden = false; main.setAttribute('aria-hidden','true'); main.inert = true; document.getElementById('m-gcal').focus(); }, 450);
     }
   }
-  document.querySelectorAll('[data-paid]').forEach(a => a.href = PAID_CLASS_URL);
+  document.querySelectorAll('[data-sales]').forEach(a => a.href = SALES_PAGE_URL);
   document.querySelectorAll('[data-msg]').forEach(a => a.href = MESSENGER_URL);
   document.querySelectorAll('[data-email]').forEach(a => { a.href = 'mailto:' + CONTACT_EMAIL; a.textContent = CONTACT_EMAIL; });
   document.getElementById('yr').textContent = new Date().getFullYear();

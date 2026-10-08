@@ -9,15 +9,23 @@
 <title>Free Grok 101: Get More Out of Grok in One Hour | AI the Easy Way</title>
 <meta name="description" content="A 1-hour free, beginner-friendly class from AI the Easy Way at the Lake of the Ozarks. Learn how to talk to Grok, prompts that work, voice mode and quick wins for your business. In person and online sessions.">
 <meta property="og:title" content="Free Grok 101: Get More Out of Grok in One Hour">
-<meta property="og:description" content="A 1-hour free, plain-English class for local business owners and beginners. Save your seat.">
+<meta property="og:description" content="A 1-hour free, plain-English class for local business owners and beginners. In person at Osage Beach Library, Wed Oct 21, 12:00 to 1:00 PM CT. Save your seat.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="http://free.mysihelpers.com/">
 <meta property="og:image" content="http://free.mysihelpers.com/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Free Grok 101: Get more out of Grok in one hour. In person at Osage Beach Library, Wed Oct 21, 12:00 to 1:00 PM CT.">
+<meta property="og:site_name" content="AI the Easy Way">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Grok 101: Get More Out of Grok in One Hour">
+<meta name="twitter:description" content="A 1-hour free, plain-English class. In person at Osage Beach Library, Wed Oct 21, 12:00 to 1:00 PM CT. Save your seat.">
+<meta name="twitter:image" content="http://free.mysihelpers.com/assets/og-image.jpg">
 <meta name="theme-color" content="#0a0f1f">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌅</text></svg>">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -25,6 +33,7 @@
 </head>
 <body>
 <script>document.documentElement.classList.add('js')</script>
+<a class="skip" href="#register">Skip to registration</a>
 <div class="bg-glow" aria-hidden="true">
   <div class="blob t" style="top:-300px;left:-280px"></div>
   <div class="blob o" style="top:180px;right:-380px;animation-delay:-6s"></div>
@@ -47,6 +56,7 @@
   </div>
 </nav>
 
+<main id="main">
 <header class="hero" id="top">
   <div class="grid-bg" aria-hidden="true"></div>
   <div class="wrap" style="position:relative">
@@ -63,7 +73,7 @@
         <p class="sub">A free class. Plain English. Bring your phone.</p>
         <p class="lede">You've heard about Grok. Maybe you've even tried it. In one hour I'll show you how to talk to it so you get useful answers, the prompts I use every day, voice mode, and quick wins you can use in your business that same afternoon.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#register">Save my free seat <span class="arrow">→</span></a>
+          <a class="btn btn-primary" href="#register">Save my free seat <span class="arrow" aria-hidden="true">→</span></a>
           <a class="btn btn-ghost btn-textlink" href="#learn">What you'll learn</a>
         </div>
         <p class="tiny">1-hour free class · Beginners welcome · In person at the Lake, with online (Zoom) sessions coming too. 🌅</p>
@@ -147,11 +157,12 @@
     <span class="eyebrow reveal">See the helpers at work</span>
     <h2 class="reveal">Real helpers. <span class="grad-text">Real work.</span></h2>
     <p class="section-sub reveal">Once you know how to talk to Grok, you can give it a job. Here's one of mine, running on its own.</p>
-    <figure class="clip-frame reveal">
+    <figure class="clip-frame reveal" style="position:relative">
       <video autoplay muted loop playsinline preload="metadata" poster="assets/clip/helpers-at-work-poster.jpg" aria-label="Animation: a Grok helper adds this morning's AI news stories from X, row by row, into a team spreadsheet" width="1280" height="720">
         <source src="assets/clip/helpers-at-work.webm" type="video/webm">
         <source src="assets/clip/helpers-at-work.mp4" type="video/mp4">
       </video>
+      <button class="clip-toggle" type="button" aria-pressed="false" aria-label="Pause animation"><span aria-hidden="true">❚❚</span><span class="ct-txt">Pause</span></button>
       <figcaption>⏰ Every weekday at 6 AM, my Grok helper pulls the AI news from X into our team sheet.<small>Real stories from the morning of Oct 8, 2026. You'll see it live in class.</small></figcaption>
     </figure>
   </div>
@@ -232,10 +243,10 @@
         <div class="reg-art" aria-hidden="true"><picture><source srcset="assets/helpers/helper-calendar.webp" type="image/webp"><img src="assets/helpers/helper-calendar.png" alt=""></picture></div>
       </div>
       <form class="reg" id="reg-form" novalidate>
-        <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
-        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
-        <div class="field"><label for="f-phone">Phone <span class="opt">(optional, for a text reminder)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
-        <div class="field"><label for="f-biz">Business name <span class="opt">(if you have one)</span></label><input id="f-biz" name="business" autocomplete="organization"></div>
+        <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" autocapitalize="words" enterkeyhint="next" required aria-required="true"></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" enterkeyhint="next" required aria-required="true"></div>
+        <div class="field"><label for="f-phone">Phone <span class="opt">(optional, for a text reminder)</span></label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" enterkeyhint="next"></div>
+        <div class="field"><label for="f-biz">Business name <span class="opt">(if you have one)</span></label><input id="f-biz" name="business" type="text" autocomplete="organization" autocapitalize="words" enterkeyhint="next"></div>
         <fieldset class="field"><legend>How do you want to join?</legend>
           <div class="fmt-pick">
             <label><input type="radio" name="format" value="In person" checked> 📍 In person (Osage Beach)</label>
@@ -244,21 +255,12 @@
         </fieldset>
         <div class="field"><label for="f-session">Which session?</label><select id="f-session" name="session"></select></div>
         <div class="hp" aria-hidden="true"><label>Leave blank<input name="company_site" tabindex="-1" autocomplete="off"></label></div>
-        <button class="btn btn-primary" type="submit">Save my free seat <span class="arrow">→</span></button>
-        <p class="form-status" id="form-status" role="status"></p>
+        <button class="btn btn-primary" type="submit">Save my free seat <span class="arrow" aria-hidden="true">→</span></button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
         <p class="form-note">We'll only use this to send class details.</p>
       </form>
     </div>
 
-    <div class="tease reveal">
-      <div class="tease-card">
-        <div class="ic ic-helper" aria-hidden="true"><picture><source srcset="assets/helpers/helper-files.webp" type="image/webp"><img src="assets/helpers/helper-files.png" alt=""></picture></div>
-        <div>
-          <h3>Want AI helpers set up for you?</h3>
-          <p>Ask Chris about the hands-on AI Helpers setup class ($97), where we set up your Grok Bot helpers together. <a data-paid href="https://buy.stripe.com/8x2eV52QE9wM2PK5do8AE04" target="_blank" rel="noopener">Grab a hands-on seat ($97) →</a></p>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -273,8 +275,29 @@
       <details class="reveal"><summary>Do I need to be techie?<span class="plus">+</span></summary><div class="ans"><strong>Nope.</strong> If you can send a text, you're good. We go step by step.</div></details>
       <details class="reveal"><summary>In person or online?<span class="plus">+</span></summary><div class="ans">Both. The first session is <strong>in person at Osage Beach Library, Wed, Oct 21, 12:00 to 1:00 PM CT</strong>. Online (Zoom) sessions are coming. Pick the one you want when you register, and Zoom folks get the link by email.</div></details>
       <details class="reveal"><summary>Is this an official xAI class?<span class="plus">+</span></summary><div class="ans">No. It's an independent class from AI the Easy Way that teaches you to use Grok. Not affiliated with or endorsed by xAI.</div></details>
-      <details class="reveal"><summary>How is this different from the $97 class?<span class="plus">+</span></summary><div class="ans">This free class is about <strong>using Grok</strong> well. The paid <a data-paid href="https://buy.stripe.com/8x2eV52QE9wM2PK5do8AE04" target="_blank" rel="noopener" style="color:var(--teal)">hands-on AI Helpers setup class ($97)</a> is where we set up your Grok Bot helpers together, for your business. Ask Chris about it.</div></details>
+      <details class="reveal"><summary>How is this different from the $97 class?<span class="plus">+</span></summary><div class="ans">This free class is about <strong>using Grok</strong> well. The paid <a data-sales href="http://mysihelpers.com/" style="color:var(--teal)">hands-on AI Helpers class ($97)</a> is where we set up your own Grok Bot helpers together, for your business. Totally optional.</div></details>
     </div>
+    </div>
+  </div>
+</section>
+
+<section id="next-level" class="upsell next-level">
+  <div class="wrap">
+    <div class="upsell-box reveal">
+      <div>
+        <span class="eyebrow o">After the free class</span>
+        <h2>Ready for the <span class="grad-text">next level?</span></h2>
+        <p class="lede">Want Grok working for you every day? In the hands-on AI Helpers class we set up your own Grok Bot helpers together: a chief of staff, connected email and calendar, and routines that run while you work.</p>
+        <ul>
+          <li>Built together, on your own laptop</li>
+          <li>Hand off the busywork and get hours back each week</li>
+          <li>You stay in charge: nothing goes out without your OK</li>
+        </ul>
+        <div class="cta-row" style="justify-content:flex-start;margin-top:18px">
+          <a class="btn btn-sunset" data-sales href="http://mysihelpers.com/">See the hands-on class <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="nl-art" aria-hidden="true"><picture><source srcset="assets/helpers/helper-chief.webp" type="image/webp"><img src="assets/helpers/helper-chief.png" alt=""></picture></div>
     </div>
   </div>
 </section>
@@ -286,7 +309,7 @@
       <h2>Ready to get more out of <span class="grad-text">Grok?</span></h2>
       <p>Free, friendly, and plain English. Grab a seat and bring your phone.</p>
       <div class="cta-row">
-        <a class="btn btn-sunset" href="#register">Save my free seat <span class="arrow">→</span></a>
+        <a class="btn btn-sunset" href="#register">Save my free seat <span class="arrow" aria-hidden="true">→</span></a>
       </div>
       <svg class="waves" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true">
         <path d="M0 50 Q150 20 300 50 T600 50 T900 50 T1200 50 V90 H0Z" fill="rgba(255,138,61,.18)"/>
@@ -295,6 +318,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="wrap">
@@ -331,7 +355,14 @@
   if (vid && window.matchMedia('(max-width: 640px)').matches){
     vid.classList.add('sq'); vid.poster='assets/clip/helpers-at-work-sq-poster.jpg';
     vid.innerHTML='<source src="assets/clip/helpers-at-work-sq.webm" type="video/webm"><source src="assets/clip/helpers-at-work-sq.mp4" type="video/mp4">';
-    vid.load(); const pl=vid.play(); if(pl&&pl.catch) pl.catch(()=>{});
+    vid.load(); if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches){ const pl=vid.play(); if(pl&&pl.catch) pl.catch(()=>{}); }
+  }
+  // clip: pause/play button (WCAG 2.2.2) + respect reduced motion
+  const tog=document.querySelector('.clip-toggle');
+  if (vid && tog){
+    const setState=paused=>{ tog.setAttribute('aria-pressed', paused); tog.setAttribute('aria-label', paused?'Play animation':'Pause animation'); tog.querySelector('[aria-hidden]').textContent = paused?'▶':'❚❚'; tog.querySelector('.ct-txt').textContent = paused?'Play':'Pause'; };
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){ vid.removeAttribute('autoplay'); vid.autoplay=false; vid.pause(); setState(true); }
+    tog.addEventListener('click',()=>{ if(vid.paused){ const pl=vid.play(); if(pl&&pl.catch) pl.catch(()=>{}); setState(false);} else { vid.pause(); setState(true);} });
   }
   // before / after tabs
   const tabs=[...document.querySelectorAll('.ba-tab')], panels=[...document.querySelectorAll('.ba-panel')];
@@ -347,6 +378,11 @@
   } else if (new URLSearchParams(location.search).has('preview-testimonials')){
     tgrid.appendChild(document.getElementById('testi-placeholder').content.cloneNode(true)); tsec.hidden=false;
   }
+
+  // where they came from (e.g. ?src=chamber on the event QR code); kept for this browser session
+  let src = (new URLSearchParams(location.search).get('src') || '').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,30);
+  try { if (src) sessionStorage.setItem('fg101-src', src); else src = sessionStorage.getItem('fg101-src') || ''; } catch(e) {}
+  const srcNote = src ? (src === 'chamber' ? ' (via chamber QR)' : ' (via ' + src + ')') : '';
 
   // registration form
   const form = document.getElementById('reg-form'), sel = document.getElementById('f-session'), status = document.getElementById('form-status');
@@ -372,7 +408,7 @@
     if (!d.name.trim()) { status.textContent = 'Please add your name.'; form.name.focus(); return; }
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email.trim())) { status.textContent = 'Please check your email address.'; form.email.focus(); return; }
     const sess = SESSIONS.find(s => s.id === d.session);
-    const sessText = sess ? (sess.title + ' · ' + sessionWhen(sess)) : sel.options[sel.selectedIndex].text;
+    const sessText = (sess ? (sess.title + ' · ' + sessionWhen(sess)) : sel.options[sel.selectedIndex].text) + srcNote;
     const next = 'thanks.html?s=' + encodeURIComponent(d.session) + '&f=' + encodeURIComponent(d.format);
     const btn = form.querySelector('button'), btnHtml = btn.innerHTML;
     const mailtoFallback = () => {
@@ -393,7 +429,7 @@
       .catch(mailtoFallback);
   });
 
-  document.querySelectorAll('[data-paid]').forEach(a => a.href = PAID_CLASS_URL);
+  document.querySelectorAll('[data-sales]').forEach(a => a.href = SALES_PAGE_URL);
   document.querySelectorAll('[data-msg]').forEach(a => a.href = MESSENGER_URL);
   document.querySelectorAll('[data-x]').forEach(a => a.href = X_URL);
   document.querySelectorAll('[data-fb]').forEach(a => a.href = FACEBOOK_URL);
@@ -403,6 +439,16 @@
     const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12, rootMargin:'0px 0px -40px 0px'});
     els.forEach(el => io.observe(el));
   } else els.forEach(el => el.classList.add('in'));
+
+  // arriving at #register (event QR code): show the form right away and put the cursor in "Your name"
+  function goRegister(){
+    const box=document.querySelector('#register .reg-box'); if (box) box.classList.add('in');
+    const narrow = window.matchMedia('(max-width: 960px)').matches; // on phones the form sits below the intro, so go straight to it
+    (narrow ? document.getElementById('reg-form') : document.getElementById('register')).scrollIntoView({block:'start'});
+    setTimeout(()=>{ try { document.getElementById('f-name').focus({preventScroll:true}); } catch(e) { document.getElementById('f-name').focus(); } }, 350);
+  }
+  if (location.hash === '#register') { if (document.readyState === 'complete') goRegister(); else window.addEventListener('load', goRegister); }
+  document.querySelectorAll('a[href="#register"]').forEach(a => a.addEventListener('click', () => setTimeout(()=>{ try { document.getElementById('f-name').focus({preventScroll:true}); } catch(e) {} }, 600)));
 })();
 </script>
 </body>

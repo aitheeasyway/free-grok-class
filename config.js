@@ -52,7 +52,8 @@ const REG_FORM = {
 };
 
 /* ---- LINKS --------------------------------------------------------- */
-const PAID_CLASS_URL  = "https://buy.stripe.com/8x2eV52QE9wM2PK5do8AE04"; // $97 hands-on AI Helpers setup class (Stripe)
+const SALES_PAGE_URL  = "http://mysihelpers.com/";   // hands-on AI Helpers class sales page (the "next level" buttons go here first). Switch to https once the cert is issued.
+const PAID_CLASS_URL  = "https://buy.stripe.com/8x2eV52QE9wM2PK5do8AE04"; // not linked on this site anymore (people see the sales page first); kept for reference. $97 hands-on AI Helpers setup class (Stripe)
 const CONTACT_EMAIL   = "aitheeasyway@gmail.com";
 const MESSENGER_URL   = "https://m.me/aitheeasyway";
 const X_URL           = "https://x.com/aitheeasyway";
