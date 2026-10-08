@@ -33,21 +33,20 @@ const SESSIONS = [
 const DATE_TBD_TEXT = "Date announced soon";
 
 /* ---- REGISTRATION (Google Form) ------------------------------------
-   SWAP ME once the Google Form "Free Grok 101 Registration" exists:
-   action = the form's .../formResponse URL (NOT /viewform), e.g.
-     "https://docs.google.com/forms/d/e/1FAIpQLS.../formResponse"
-   fields = each question's entry id (from "Get pre-filled link").
-   While action is "", the form falls back to opening an email to
-   aitheeasyway@gmail.com with the details filled in.                  */
+   Google Form "Free Grok 101 Registration" (owned by aitheeasyway@gmail.com).
+   action = the form's .../formResponse URL (NOT /viewform).
+   fields = each question's entry id. Format options must match exactly:
+   "In person" / "Online (Zoom)". If the submit fails (network error),
+   the page falls back to opening a pre-filled email to CONTACT_EMAIL.  */
 const REG_FORM = {
-  action: "",                          // SWAP ME
+  action: "https://docs.google.com/forms/d/e/1FAIpQLSfDg-2_0DAr7dtTBC8LO2CH0vaBz_1a6xV_Vj5lM_U6O8NCfg/formResponse",
   fields: {
-    name:     "entry.0000000001",      // SWAP ME  Full name (short answer)
-    email:    "entry.0000000002",      // SWAP ME  Email (short answer)
-    phone:    "entry.0000000003",      // SWAP ME  Phone, optional (short answer)
-    business: "entry.0000000004",      // SWAP ME  Business name (short answer)
-    format:   "entry.0000000005",      // SWAP ME  "In person" / "Online (Zoom)" (multiple choice)
-    session:  "entry.0000000006"       // SWAP ME  Session (short answer)
+    name:     "entry.927359473",       // Name (required)
+    email:    "entry.1838659936",      // Email (required)
+    phone:    "entry.813348282",       // Phone (optional)
+    business: "entry.1357160823",      // Business name (optional)
+    format:   "entry.30640087",        // Format: "In person" / "Online (Zoom)" (required)
+    session:  "entry.509934597"        // Session label text
   }
 };
 

@@ -167,7 +167,6 @@
         <p class="form-status" id="form-status" role="status"></p>
         <p class="form-note">We'll only use this to send class details.</p>
       </form>
-      <iframe name="gf-sink" id="gf-sink" title="form" hidden></iframe>
     </div>
 
     <div class="tease reveal">
@@ -272,22 +271,23 @@
     const sess = SESSIONS.find(s => s.id === d.session);
     const sessText = sess ? (sess.title + ' · ' + sessionWhen(sess)) : sel.options[sel.selectedIndex].text;
     const next = 'thanks.html?s=' + encodeURIComponent(d.session) + '&f=' + encodeURIComponent(d.format);
-    if (REG_FORM.action) {
-      // Post straight into the Google Form (responses land in the form's Google account)
-      const gf = document.createElement('form'); gf.action = REG_FORM.action; gf.method = 'POST'; gf.target = 'gf-sink'; gf.style.display = 'none';
-      const vals = {name:d.name, email:d.email, phone:d.phone, business:d.business, format:d.format, session:sessText};
-      for (const k in vals) { if (!REG_FORM.fields[k]) continue; const i = document.createElement('input'); i.name = REG_FORM.fields[k]; i.value = vals[k] || ''; gf.appendChild(i); }
-      document.body.appendChild(gf);
-      const btn = form.querySelector('button'); btn.disabled = true; btn.textContent = 'Saving your seat...';
-      let done = false; const go = () => { if(!done){ done = true; location.href = next; } };
-      document.getElementById('gf-sink').addEventListener('load', go); setTimeout(go, 2500);
-      gf.submit();
-    } else {
-      // PREVIEW FALLBACK: no Google Form connected yet, so open a pre-filled email instead
+    const btn = form.querySelector('button'), btnHtml = btn.innerHTML;
+    const mailtoFallback = () => {
+      // Error fallback only: open a pre-filled email so the registration isn't lost
       const body = `Please save me a seat at Free Grok 101.\n\nName: ${d.name}\nEmail: ${d.email}\nPhone: ${d.phone||'-'}\nBusiness: ${d.business||'-'}\nFormat: ${d.format}\nSession: ${sessText}`;
+      status.textContent = "Hmm, that didn't go through. We opened an email so you can send it to us instead.";
+      btn.disabled = false; btn.innerHTML = btnHtml;
       location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent('Free Grok 101 registration: ' + d.name) + '&body=' + encodeURIComponent(body);
-      setTimeout(() => location.href = next, 1200);
-    }
+    };
+    if (!REG_FORM.action) { mailtoFallback(); return; }
+    // Post straight into the Google Form (responses land in the form owner's account)
+    const vals = {name:d.name.trim(), email:d.email.trim(), phone:(d.phone||'').trim(), business:(d.business||'').trim(), format:d.format, session:sessText};
+    const params = new URLSearchParams();
+    for (const k in vals) if (REG_FORM.fields[k]) params.append(REG_FORM.fields[k], vals[k] || '');
+    btn.disabled = true; btn.textContent = 'Saving your seat...';
+    fetch(REG_FORM.action, {method:'POST', mode:'no-cors', body:params})
+      .then(() => { location.href = next; })
+      .catch(mailtoFallback);
   });
 
   document.querySelectorAll('[data-paid]').forEach(a => a.href = PAID_CLASS_URL);
