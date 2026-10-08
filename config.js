@@ -5,6 +5,7 @@
 /* ---- SESSIONS ------------------------------------------------------
    One entry per class session. The first upcoming one shows in the hero.
    format: "in-person" or "online"
+   minutes: length of the slot (sets the end time + calendar invite)
    date:   ISO with Central offset, e.g. "2026-10-15T12:00:00-05:00"
            (CDT = -05:00 until Nov 1, 2026; CST = -06:00 after).
            null  -> shows "Date announced soon"
@@ -15,8 +16,8 @@ const SESSIONS = [
     id: "osage-1",
     format: "in-person",
     title: "In person · Osage Beach Library",
-    date: null,                       // SWAP ME: e.g. "2026-10-15T12:00:00-05:00"
-    minutes: 45,
+    date: "2026-10-21T12:00:00-05:00", // Wed Oct 21, 12:00 PM CT (CDT)
+    minutes: 90,                       // 12:00 to 1:30 PM CT
     place: "Osage Beach Library, Osage Beach, MO"
   }
   // ,{
@@ -51,18 +52,30 @@ const REG_FORM = {
 };
 
 /* ---- LINKS --------------------------------------------------------- */
-const PAID_CLASS_URL  = "http://mysihelpers.com";      // switch to https once the cert is issued
+const PAID_CLASS_URL  = "https://buy.stripe.com/8x2eV52QE9wM2PK5do8AE04"; // $97 hands-on AI Helpers setup class (Stripe)
 const CONTACT_EMAIL   = "aitheeasyway@gmail.com";
 const MESSENGER_URL   = "https://m.me/aitheeasyway";
 const X_URL           = "https://x.com/aitheeasyway";
 const FACEBOOK_URL    = "https://facebook.com/aitheeasyway";
+
+/* ---- TESTIMONIALS ("What LANG members say") ----------------------
+   Leave EMPTY to hide the section. Only add real quotes, with permission.
+   Example shape (do not publish made-up quotes):
+   { quote: "...", name: "First L.", role: "Owner, Business Name" }      */
+const TESTIMONIALS = [];
 
 /* ---- helpers (no need to edit) ------------------------------------ */
 function sessionWhen(s, opts){
   if(!s.date) return DATE_TBD_TEXT;
   const d = new Date(s.date); if(isNaN(d)) return DATE_TBD_TEXT;
   const day = d.toLocaleDateString('en-US',{timeZone:'America/Chicago',weekday:'short',month:'short',day:'numeric'});
-  const t = d.toLocaleTimeString('en-US',{timeZone:'America/Chicago',hour:'numeric',minute:'2-digit'});
+  const tf = x => x.toLocaleTimeString('en-US',{timeZone:'America/Chicago',hour:'numeric',minute:'2-digit'});
+  let t = tf(d);
+  if (s.minutes) {                       // "12:00–1:30 PM" style range
+    const e = new Date(d.getTime() + s.minutes*60000), et = tf(e);
+    const sm = t.slice(-2), em = et.slice(-2);
+    t = (sm === em ? t.slice(0,-3) : t) + '–' + et;
+  }
   return (opts && opts.dayOnly) ? day : day + ' · ' + t + ' CT';
 }
 function formatLabel(f){ return f === 'online' ? 'Online (Zoom)' : 'In person'; }

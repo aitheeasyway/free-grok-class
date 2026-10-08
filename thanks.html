@@ -34,7 +34,7 @@
     <span class="eyebrow" style="margin-top:10px">Free Grok 101</span>
     <h1>You're <span class="grad-text">registered!</span> 🎉</h1>
     <p class="lede">Your seat is saved. Watch your inbox for class details and a reminder before we start.</p>
-    <div class="ty-sess" id="ty-sess"><b id="ty-when">Date announced soon</b><span id="ty-where">In person · Osage Beach Library</span></div>
+    <div class="ty-sess" id="ty-sess"><b id="ty-when">Wed, Oct 21 · 12:00–1:30 PM CT</b><span id="ty-where">In person · Osage Beach Library, Osage Beach, MO</span></div>
     <div class="cal-row" id="cal-row">
       <span class="badge" id="cal-soon">📅 Add-to-calendar link coming once the date is set. We'll email it to you.</span>
     </div>
@@ -61,11 +61,28 @@
       <div class="ic ic-helper" aria-hidden="true"><picture><source srcset="assets/helpers/helper-files.webp" type="image/webp"><img src="assets/helpers/helper-files.png" alt=""></picture></div>
       <div>
         <h3>Want AI helpers set up for you?</h3>
-        <p>Ask about the Oct 21 hands-on class at Osage Beach Library. We set up your own helpers together, on your laptop. No pressure, the free class comes first. <a data-paid href="http://mysihelpers.com" target="_blank" rel="noopener">Peek at the hands-on class →</a></p>
+        <p>Ask Chris about the hands-on AI Helpers setup class ($97), where we set up your Grok Bot helpers together. No pressure, the free class comes first. <a data-paid href="https://buy.stripe.com/8x2eV52QE9wM2PK5do8AE04" target="_blank" rel="noopener">Grab a hands-on seat ($97) →</a></p>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Add-to-calendar popup: opens right after registering (thanks.html?s=...) when the session has a date -->
+<div class="modal-bg" id="cal-modal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <button class="m-close" type="button" aria-label="Close" data-close>×</button>
+    <img class="m-art" src="assets/helpers/helper-calendar.png" alt="" width="300" height="300">
+    <span class="eyebrow">You're in! One more step</span>
+    <h2 id="m-title">Add it to your calendar</h2>
+    <div class="m-when" id="m-when"></div>
+    <div class="m-where" id="m-where"></div>
+    <div class="m-btns">
+      <a class="btn btn-primary" id="m-gcal" href="#" target="_blank" rel="noopener">📅 Google Calendar</a>
+      <a class="btn btn-ghost" id="m-ics" href="#" download="free-grok-101.ics">🍎 Apple / Outlook (.ics)</a>
+    </div>
+    <button class="m-later" type="button" data-close>Maybe later</button>
+  </div>
+</div>
 
 <footer>
   <div class="wrap">
@@ -93,17 +110,37 @@
   }
   if (online || (s && s.format === 'online')) document.getElementById('zoom-note').hidden = false;
 
-  // Add-to-calendar (only when the session has a real date)
+  // Add-to-calendar (only when the session has a real date): inline buttons + popup
   if (s && s.date && !isNaN(new Date(s.date))) {
     const start = new Date(s.date), end = new Date(start.getTime() + (s.minutes||45)*60000);
     const z = d => d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
     const title = 'Free Grok 101 (AI the Easy Way)';
-    const details = 'Free Grok 101 with Chris Booth. Bring your phone or laptop with the Grok app and a free account. ' + location.origin + location.pathname.replace(/thanks\.html$/,'');
+    const site = location.origin + location.pathname.replace(/thanks\.html$/,'');
+    const details = 'Free Grok 101 with Chris Booth. Bring your phone or laptop with the Grok app and a free Grok account. ' + site;
     const where = s.format === 'online' ? 'Online (Zoom), link sent by email' : (s.place || s.title);
-    const g = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(title) + '&dates=' + z(start) + '/' + z(end) + '&details=' + encodeURIComponent(details) + '&location=' + encodeURIComponent(where);
-    const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//AI the Easy Way//Free Grok 101//EN','BEGIN:VEVENT','UID:'+s.id+'@aitheeasyway','DTSTAMP:'+z(new Date()),'DTSTART:'+z(start),'DTEND:'+z(end),'SUMMARY:'+title,'LOCATION:'+where.replace(/,/g,'\\,'),'DESCRIPTION:'+details.replace(/,/g,'\\,'),'END:VEVENT','END:VCALENDAR'].join('\r\n');
-    const icsUrl = URL.createObjectURL(new Blob([ics], {type:'text/calendar'}));
+    const g = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(title) + '&dates=' + z(start) + '/' + z(end) + '&details=' + encodeURIComponent(details) + '&location=' + encodeURIComponent(where) + '&ctz=America/Chicago';
+    const icsEsc = t => String(t).replace(/\\/g,'\\\\').replace(/([,;])/g,'\\$1').replace(/\n/g,'\\n');
+    const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//AI the Easy Way//Free Grok 101//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH','BEGIN:VEVENT','UID:'+s.id+'-free-grok-101@aitheeasyway','DTSTAMP:'+z(new Date()),'DTSTART:'+z(start),'DTEND:'+z(end),'SUMMARY:'+icsEsc(title),'LOCATION:'+icsEsc(where),'DESCRIPTION:'+icsEsc(details),'URL:'+site,'BEGIN:VALARM','TRIGGER:-PT1H','ACTION:DISPLAY','DESCRIPTION:Free Grok 101 starts in 1 hour','END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n');
+    const icsUrl = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
     document.getElementById('cal-row').innerHTML = `<a class="btn btn-primary btn-sm" href="${g}" target="_blank" rel="noopener">📅 Add to Google Calendar</a><a class="btn btn-ghost btn-sm" href="${icsUrl}" download="free-grok-101.ics">Apple / Outlook (.ics)</a>`;
+
+    // popup right after registering (the form redirect carries ?s=); once per browser session per session id
+    const modal = document.getElementById('cal-modal'), key = 'fg101-cal-' + s.id;
+    let seen = false; try { seen = sessionStorage.getItem(key) === '1'; } catch(e) {}
+    if (id && !seen) {
+      document.getElementById('m-when').textContent = sessionWhen(s);
+      document.getElementById('m-where').textContent = formatLabel(s.format) + (s.place ? ' · ' + s.place : '');
+      document.getElementById('m-gcal').href = g;
+      document.getElementById('m-ics').href = icsUrl;
+      const prev = document.activeElement;
+      const close = () => { modal.hidden = true; document.removeEventListener('keydown', onKey); try { sessionStorage.setItem(key,'1'); } catch(e) {} if (prev && prev.focus) prev.focus(); };
+      const onKey = e => { if (e.key === 'Escape') close(); };
+      modal.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', close));
+      modal.addEventListener('click', e => { if (e.target === modal) close(); });
+      modal.querySelectorAll('.m-btns a').forEach(a => a.addEventListener('click', () => setTimeout(close, 300)));
+      document.addEventListener('keydown', onKey);
+      setTimeout(() => { modal.hidden = false; document.getElementById('m-gcal').focus(); }, 450);
+    }
   }
   document.querySelectorAll('[data-paid]').forEach(a => a.href = PAID_CLASS_URL);
   document.querySelectorAll('[data-msg]').forEach(a => a.href = MESSENGER_URL);
