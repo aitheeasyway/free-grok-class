@@ -34,7 +34,7 @@
     <span class="eyebrow" style="margin-top:10px">Free Grok 101</span>
     <h1>You're <span class="grad-text">registered!</span> 🎉</h1>
     <p class="lede">Your seat is saved. Watch your inbox for class details and a reminder before we start.</p>
-    <div class="ty-sess" id="ty-sess"><b id="ty-when">Wed, Oct 21 · 12:00–1:30 PM CT</b><span id="ty-where">In person · Osage Beach Library, Osage Beach, MO</span></div>
+    <div class="ty-sess" id="ty-sess"><b id="ty-when">Wed, Oct 21 · 12:00–1:00 PM CT</b><span id="ty-where">In person · Osage Beach Library, Osage Beach, MO</span></div>
     <div class="cal-row" id="cal-row">
       <span class="badge" id="cal-soon">📅 Add-to-calendar link coming once the date is set. We'll email it to you.</span>
     </div>
@@ -112,7 +112,7 @@
 
   // Add-to-calendar (only when the session has a real date): inline buttons + popup
   if (s && s.date && !isNaN(new Date(s.date))) {
-    const start = new Date(s.date), end = new Date(start.getTime() + (s.minutes||45)*60000);
+    const start = new Date(s.date), end = new Date(start.getTime() + (s.minutes||60)*60000);
     const z = d => d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
     const title = 'Free Grok 101 (AI the Easy Way)';
     const site = location.origin + location.pathname.replace(/thanks\.html$/,'');

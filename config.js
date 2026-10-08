@@ -17,7 +17,7 @@ const SESSIONS = [
     format: "in-person",
     title: "In person · Osage Beach Library",
     date: "2026-10-21T12:00:00-05:00", // Wed Oct 21, 12:00 PM CT (CDT)
-    minutes: 90,                       // 12:00 to 1:30 PM CT
+    minutes: 60,                       // 1-hour free class: 12:00 to 1:00 PM CT
     place: "Osage Beach Library, Osage Beach, MO"
   }
   // ,{
@@ -25,7 +25,7 @@ const SESSIONS = [
   //   format: "online",
   //   title: "Online (Zoom)",
   //   date: "2026-10-20T18:30:00-05:00",
-  //   minutes: 45,
+  //   minutes: 60,
   //   place: "Zoom link emailed after you register"
   // }
 ];
@@ -71,7 +71,7 @@ function sessionWhen(s, opts){
   const day = d.toLocaleDateString('en-US',{timeZone:'America/Chicago',weekday:'short',month:'short',day:'numeric'});
   const tf = x => x.toLocaleTimeString('en-US',{timeZone:'America/Chicago',hour:'numeric',minute:'2-digit'});
   let t = tf(d);
-  if (s.minutes) {                       // "12:00–1:30 PM" style range
+  if (s.minutes) {                       // "12:00–1:00 PM" style range
     const e = new Date(d.getTime() + s.minutes*60000), et = tf(e);
     const sm = t.slice(-2), em = et.slice(-2);
     t = (sm === em ? t.slice(0,-3) : t) + '–' + et;
@@ -81,5 +81,5 @@ function sessionWhen(s, opts){
 function formatLabel(f){ return f === 'online' ? 'Online (Zoom)' : 'In person'; }
 function upcomingSessions(){
   const now = Date.now();
-  return SESSIONS.filter(s => !s.date || new Date(s.date).getTime() + (s.minutes||45)*60000 > now);
+  return SESSIONS.filter(s => !s.date || new Date(s.date).getTime() + (s.minutes||60)*60000 > now);
 }
