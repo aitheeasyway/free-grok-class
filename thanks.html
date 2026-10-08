@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Session details come from config.js (same file the landing page uses) -->
+<script src="config.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>You're registered · Free Grok 101 | AI the Easy Way</title>
+<meta name="theme-color" content="#0a0f1f">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌅</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="bg-glow" aria-hidden="true">
+  <div class="blob t" style="top:-300px;left:-280px"></div>
+  <div class="blob o" style="top:240px;right:-380px;animation-delay:-6s"></div>
+  <div class="blob v" style="top:55%;left:-360px;animation-delay:-3s"></div>
+</div>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="AI the Easy Way"><img class="logo-mark" src="assets/logo-ai-the-easy-way.webp" width="160" height="137" alt="AI the Easy Way"></a>
+    <div class="nav-links"><span class="grok-tag">FREE GROK 101</span><a href="index.html">Class details</a></div>
+  </div>
+</nav>
+
+<header class="ty-hero">
+  <div class="wrap">
+    <div class="ty-art" aria-hidden="true"><picture><source srcset="assets/helpers/helper-wave.webp" type="image/webp"><img src="assets/helpers/helper-wave.png" width="548" height="523" alt=""></picture></div>
+    <span class="eyebrow" style="margin-top:10px">Free Grok 101</span>
+    <h1>You're <span class="grad-text">registered!</span> 🎉</h1>
+    <p class="lede">Your seat is saved. Watch your inbox for class details and a reminder before we start.</p>
+    <div class="ty-sess" id="ty-sess"><b id="ty-when">Date announced soon</b><span id="ty-where">In person · Osage Beach Library</span></div>
+    <div class="cal-row" id="cal-row">
+      <span class="badge" id="cal-soon">📅 Add-to-calendar link coming once the date is set. We'll email it to you.</span>
+    </div>
+  </div>
+</header>
+
+<section style="padding-top:30px">
+  <div class="wrap">
+    <span class="eyebrow">Before class</span>
+    <h2>What to bring.</h2>
+    <p class="section-sub">Five minutes of prep and you're set.</p>
+    <div class="grid g3">
+      <div class="card"><div class="emoji">📱</div><h3>The Grok app</h3><p>Install Grok on your iPhone or Android, or open grok.com on a laptop. Charged up and ready.</p></div>
+      <div class="card warm"><div class="emoji">🔑</div><h3>A free Grok account</h3><p>Sign in before class. A free account is fine for everything we cover.</p></div>
+      <div class="card"><div class="emoji">📝</div><h3>One real task</h3><p>Think of one thing from your week you'd love help with: an email, a post, a quote. We'll try it live.</p></div>
+    </div>
+    <p class="note" id="zoom-note" hidden>💻 Joining online? Your Zoom link comes by email before class. Join from a laptop if you can, with the Grok app open on your phone.</p>
+  </div>
+</section>
+
+<section style="padding-top:10px">
+  <div class="wrap">
+    <div class="tease-card">
+      <div class="ic ic-helper" aria-hidden="true"><picture><source srcset="assets/helpers/helper-files.webp" type="image/webp"><img src="assets/helpers/helper-files.png" alt=""></picture></div>
+      <div>
+        <h3>Want AI helpers set up for you?</h3>
+        <p>Ask about the Oct 21 hands-on class at Osage Beach Library. We set up your own helpers together, on your laptop. No pressure, the free class comes first. <a data-paid href="http://mysihelpers.com" target="_blank" rel="noopener">Peek at the hands-on class →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><a class="logo" href="index.html" aria-label="AI the Easy Way"><img class="logo-mark" src="assets/logo-ai-the-easy-way.webp" width="160" height="137" alt="AI the Easy Way"></a><div style="margin-top:10px">Lake of the Ozarks, Missouri · © <span id="yr">2026</span></div><div class="tm">Grok is a trademark of xAI. Independent class, not affiliated with xAI.</div></div>
+    <div style="display:flex;gap:22px;flex-wrap:wrap">
+      <a data-msg href="https://m.me/aitheeasyway" target="_blank" rel="noopener">Messenger</a>
+      <a data-email href="mailto:aitheeasyway@gmail.com">aitheeasyway@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const q = new URLSearchParams(location.search);
+  const id = q.get('s') || '', fmt = q.get('f') || '';
+  const online = fmt.indexOf('Online') === 0 || id.indexOf('online') === 0;
+  let s = SESSIONS.find(x => x.id === id);
+  if (!s && !id) s = upcomingSessions()[0];
+  if (s) {
+    document.getElementById('ty-when').textContent = sessionWhen(s);
+    document.getElementById('ty-where').textContent = formatLabel(s.format) + (s.place ? ' · ' + s.place : '');
+  } else {
+    document.getElementById('ty-when').textContent = online ? 'Next online (Zoom) session' : 'Next in-person session';
+    document.getElementById('ty-where').textContent = "Date announced soon. We'll email you as soon as it's set.";
+  }
+  if (online || (s && s.format === 'online')) document.getElementById('zoom-note').hidden = false;
+
+  // Add-to-calendar (only when the session has a real date)
+  if (s && s.date && !isNaN(new Date(s.date))) {
+    const start = new Date(s.date), end = new Date(start.getTime() + (s.minutes||45)*60000);
+    const z = d => d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+    const title = 'Free Grok 101 (AI the Easy Way)';
+    const details = 'Free Grok 101 with Chris Booth. Bring your phone or laptop with the Grok app and a free account. ' + location.origin + location.pathname.replace(/thanks\.html$/,'');
+    const where = s.format === 'online' ? 'Online (Zoom), link sent by email' : (s.place || s.title);
+    const g = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(title) + '&dates=' + z(start) + '/' + z(end) + '&details=' + encodeURIComponent(details) + '&location=' + encodeURIComponent(where);
+    const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//AI the Easy Way//Free Grok 101//EN','BEGIN:VEVENT','UID:'+s.id+'@aitheeasyway','DTSTAMP:'+z(new Date()),'DTSTART:'+z(start),'DTEND:'+z(end),'SUMMARY:'+title,'LOCATION:'+where.replace(/,/g,'\\,'),'DESCRIPTION:'+details.replace(/,/g,'\\,'),'END:VEVENT','END:VCALENDAR'].join('\r\n');
+    const icsUrl = URL.createObjectURL(new Blob([ics], {type:'text/calendar'}));
+    document.getElementById('cal-row').innerHTML = `<a class="btn btn-primary btn-sm" href="${g}" target="_blank" rel="noopener">📅 Add to Google Calendar</a><a class="btn btn-ghost btn-sm" href="${icsUrl}" download="free-grok-101.ics">Apple / Outlook (.ics)</a>`;
+  }
+  document.querySelectorAll('[data-paid]').forEach(a => a.href = PAID_CLASS_URL);
+  document.querySelectorAll('[data-msg]').forEach(a => a.href = MESSENGER_URL);
+  document.querySelectorAll('[data-email]').forEach(a => { a.href = 'mailto:' + CONTACT_EMAIL; a.textContent = CONTACT_EMAIL; });
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
