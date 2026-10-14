@@ -16,8 +16,8 @@ const SESSIONS = [
     id: "osage-1",
     format: "in-person",
     title: "In person · Osage Beach Library",
-    date: "2026-10-21T11:30:00-05:00", // Wed Oct 21, 11:30 AM CT (CDT)
-    minutes: 30,                       // 30-minute free class: 11:30 AM to 12:00 PM CT
+    date: "2026-10-21T12:00:00-05:00", // Wed Oct 21, 12:00 PM CT (CDT)
+    minutes: 60,                       // 1-hour free class: 12:00 to 1:00 PM CT
     place: "Osage Beach Library, Osage Beach, MO"
   }
   // ,{
