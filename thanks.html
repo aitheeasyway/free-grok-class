@@ -52,7 +52,7 @@
     <p class="section-sub">Five minutes of prep and you're set.</p>
     <div class="grid g3">
       <div class="card"><div class="emoji">📱</div><h3>The Grok app</h3><p>Install Grok on your iPhone or Android, or open grok.com on a laptop. Charged up and ready.</p></div>
-      <div class="card warm"><div class="emoji">🔑</div><h3>A free Grok account</h3><p>Sign in before class. A free account is fine for everything we cover.</p></div>
+      <div class="card warm"><div class="emoji">🌱</div><h3>Beginners welcome</h3><p>No tech skills needed. We go step by step in plain English.</p></div>
       <div class="card"><div class="emoji">📝</div><h3>One real task</h3><p>Think of one thing from your week you'd love help with: an email, a post, a quote. We'll try it live.</p></div>
     </div>
     <p class="note" id="zoom-note" hidden>💻 Joining online? Your Zoom link comes by email before class. Join from a laptop if you can, with the Grok app open on your phone.</p>
@@ -119,9 +119,9 @@
   if (s && s.date && !isNaN(new Date(s.date))) {
     const start = new Date(s.date), end = new Date(start.getTime() + (s.minutes||60)*60000);
     const z = d => d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
-    const title = 'Free Grok 101 (AI the Easy Way)';
+    const title = 'Free Grok 101 with Chris Booth';
     const site = location.origin + location.pathname.replace(/thanks\.html$/,'');
-    const details = 'Free Grok 101 with Chris Booth. Bring your phone or laptop with the Grok app and a free Grok account. ' + site;
+    const details = 'Free Grok 101 with Chris Booth: a free, beginner-friendly AI workshop. No tech skills needed. Come learn how Grok and AI helpers can save you time. Bring your phone or laptop. Osage Beach Library. ' + site;
     const where = s.format === 'online' ? 'Online (Zoom), link sent by email' : (s.place || s.title);
     const g = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(title) + '&dates=' + z(start) + '/' + z(end) + '&details=' + encodeURIComponent(details) + '&location=' + encodeURIComponent(where) + '&ctz=America/Chicago';
     const icsEsc = t => String(t).replace(/\\/g,'\\\\').replace(/([,;])/g,'\\$1').replace(/\n/g,'\\n');
