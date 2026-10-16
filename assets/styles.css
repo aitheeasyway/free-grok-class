@@ -214,8 +214,12 @@ footer a:hover{color:var(--teal)}
 .upsell-price .soon{font-size:13px;margin:12px 0 0}
 @media (max-width:720px){.upsell-box{grid-template-columns:1fr;padding:26px 22px}.tease-card{flex-direction:column;gap:12px}}
 .grok-tag{font-family:"Space Grotesk";font-weight:700;letter-spacing:.18em;font-size:12px;color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:4px 9px}
-.built-on{display:inline-flex;align-items:center;gap:12px;padding:10px 18px;border-radius:14px;background:#000;border:1px solid rgba(255,255,255,.18);margin-bottom:18px;color:#cfd6e4;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
-.built-on img{height:30px;width:auto;display:block}
+.beginner-line{margin:0 0 14px;font-size:15px;font-weight:600;color:#d7e0ee}
+.contact-links{margin-top:14px;font-size:14px;color:var(--muted);line-height:1.55;max-width:42em}
+.contact-links a{color:var(--teal);text-decoration:none;overflow-wrap:anywhere}
+.contact-links a:hover{text-decoration:underline}
+.sess p a{color:var(--teal);text-decoration:none}
+.sess p a:hover{text-decoration:underline}
 .hero .pill{display:flex;width:fit-content;margin:0 auto}
 .grok-word{color:#fff;text-shadow:0 0 28px rgba(255,255,255,.35)}
 .tm{margin-top:6px;font-size:12px;color:var(--muted)}
@@ -249,7 +253,7 @@ footer a:hover{color:var(--teal)}
 @media (max-width:960px){
   .hero-grid .cta-row .btn-textlink{border-color:var(--line);padding-inline:20px;color:var(--text)}
   .hero-grid{grid-template-columns:1fr;grid-template-areas:"top" "art" "body";text-align:center}
-  .hero-grid .pill,.hero-grid .built-on{margin-inline:auto}
+  .hero-grid .pill{margin-inline:auto}
   .hero-grid .pill{margin-inline:auto}
   .hero-grid h1{margin:22px auto 6px;max-width:14ch}
   .hero-grid .lede{margin:0 auto 30px}
@@ -282,7 +286,7 @@ footer a:hover{color:var(--teal)}
 .reg-box li{padding:6px 0 6px 28px;position:relative;font-size:16px}
 .reg-box li::before{content:"✓";position:absolute;left:0;color:var(--teal);font-weight:700}
 .reg-art img{width:150px;height:auto;filter:drop-shadow(0 14px 22px rgba(0,0,0,.45));animation:bob 6s ease-in-out infinite}
-form.reg{display:grid;gap:14px;background:rgba(10,15,31,.6);border:1px solid var(--line);border-radius:22px;padding:26px}
+form.reg{position:relative;display:grid;gap:14px;background:rgba(10,15,31,.6);border:1px solid var(--line);border-radius:22px;padding:26px}
 .field{display:grid;gap:6px}
 .field label,.field legend{font-size:14px;font-weight:600;color:var(--text)}
 .field .opt{color:var(--muted);font-weight:400}
@@ -297,7 +301,7 @@ fieldset.field{border:0;padding:0;margin:0}
 form.reg .btn{justify-content:center;width:100%;margin-top:4px}
 .form-note{font-size:13px;color:var(--muted);text-align:center}
 .form-status{font-size:14px;color:#ffc49c;text-align:center;min-height:1em}
-.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.hp{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @media (max-width:960px){.reg-box{grid-template-columns:1fr;padding:28px}}
 @media (max-width:720px){.reg-box{padding:20px;gap:22px}form.reg{padding:18px}.fmt-pick{grid-template-columns:1fr}.reg-art{display:none}}
 /* thanks page */
@@ -308,6 +312,8 @@ form.reg .btn{justify-content:center;width:100%;margin-top:4px}
 .ty-sess{display:inline-flex;flex-direction:column;gap:4px;margin:26px auto 0;padding:18px 26px;border-radius:18px;border:1px solid rgba(46,242,224,.35);background:rgba(46,242,224,.06)}
 .ty-sess b{font-family:"Space Grotesk";font-size:22px}
 .ty-sess span{color:var(--muted);font-size:15px}
+.ty-sess a{color:var(--teal);font-size:15px;text-decoration:none}
+.ty-sess a:hover{text-decoration:underline}
 .cal-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px}
 .bring li{margin:0 0 10px 0}
 

@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>You're registered · Free Grok 101 | AI the Easy Way</title>
+<meta name="description" content="You're registered for the free class. Your class details are on this page.">
 <meta name="theme-color" content="#0a0f1f">
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -37,10 +38,10 @@
     <div class="ty-art" aria-hidden="true"><picture><source srcset="assets/helpers/helper-wave.webp" type="image/webp"><img src="assets/helpers/helper-wave.png" width="548" height="523" alt=""></picture></div>
     <span class="eyebrow" style="margin-top:10px">Free Grok 101</span>
     <h1>You're <span class="grad-text">registered!</span> 🎉</h1>
-    <p class="lede">Your seat is saved. Watch your inbox for class details and a reminder before we start.</p>
-    <div class="ty-sess" id="ty-sess"><b id="ty-when">Wed, Oct 21 · 12:00–1:00 PM CT</b><span id="ty-where">In person · Osage Beach Library, Osage Beach, MO</span></div>
+    <p class="lede">Your seat is saved. You'll see class details right here.</p>
+    <div class="ty-sess" id="ty-sess"><b id="ty-when">Wed, Oct 21 · 12:00–1:00 PM CT</b><span id="ty-where">In person · Osage Beach Library, 1064 Gutridge Lane, Osage Beach, MO 65065</span> <a id="ty-map" href="https://www.google.com/maps/search/?api=1&query=1064+Gutridge+Lane,+Osage+Beach,+MO+65065" target="_blank" rel="noopener">Map</a></div>
     <div class="cal-row" id="cal-row">
-      <span class="badge" id="cal-soon">📅 Add-to-calendar link coming once the date is set. We'll email it to you.</span>
+      <span class="badge" id="cal-soon">📅 Add-to-calendar link appears here once a date is set.</span>
     </div>
   </div>
 </header>
@@ -51,11 +52,11 @@
     <h2>What to bring.</h2>
     <p class="section-sub">Five minutes of prep and you're set.</p>
     <div class="grid g3">
-      <div class="card"><div class="emoji">📱</div><h3>The Grok app</h3><p>Install Grok on your iPhone or Android, or open grok.com on a laptop. Charged up and ready.</p></div>
+      <div class="card"><div class="emoji">📱</div><h3>Your phone or a laptop</h3><p>Just your phone (or a laptop). If you'd like to follow along, you can download the free Grok app ahead of time, but it's not required.</p></div>
       <div class="card warm"><div class="emoji">🌱</div><h3>Beginners welcome</h3><p>No tech skills needed. We go step by step in plain English.</p></div>
       <div class="card"><div class="emoji">📝</div><h3>One real task</h3><p>Think of one thing from your week you'd love help with: an email, a post, a quote. We'll try it live.</p></div>
     </div>
-    <p class="note" id="zoom-note" hidden>💻 Joining online? Your Zoom link comes by email before class. Join from a laptop if you can, with the Grok app open on your phone.</p>
+    <p class="note" id="zoom-note" hidden>💻 Joining online? A laptop works best. The free Grok app is optional if you'd like to follow along.</p>
   </div>
 </section>
 
@@ -65,7 +66,7 @@
       <div class="ic ic-helper" aria-hidden="true"><picture><source srcset="assets/helpers/helper-files.webp" type="image/webp"><img src="assets/helpers/helper-files.png" alt=""></picture></div>
       <div>
         <h3>Ready for the next level?</h3>
-        <p>Want Grok working for you every day? In the hands-on AI Helpers class we set up your own Grok Bot helpers together, so the busywork runs while you work. No pressure, the free class comes first. <a data-sales href="http://mysihelpers.com/">See the hands-on class <span aria-hidden="true">→</span></a></p>
+        <p>In the paid class, we set up AI helpers that draft your emails, posts and to-dos for you, and nothing goes out without your OK. No pressure, the free class comes first. <a data-sales href="https://mysihelpers.com/">See the hands-on class <span aria-hidden="true">→</span></a></p>
       </div>
     </div>
   </div>
@@ -91,10 +92,9 @@
 
 <footer>
   <div class="wrap">
-    <div><a class="logo" href="index.html" aria-label="AI the Easy Way"><img class="logo-mark" src="assets/logo-ai-the-easy-way.webp" width="160" height="137" alt="AI the Easy Way"></a><div style="margin-top:10px">Lake of the Ozarks, Missouri · © <span id="yr">2026</span></div><div class="tm">Grok is a trademark of xAI. Independent class, not affiliated with xAI.</div></div>
+    <div><a class="logo" href="index.html" aria-label="AI the Easy Way"><img class="logo-mark" src="assets/logo-ai-the-easy-way.webp" width="160" height="137" alt="AI the Easy Way"></a><div style="margin-top:10px">Lake of the Ozarks, Missouri · © <span id="yr">2026</span></div><div class="tm">Grok is a trademark of xAI. Independent, not affiliated with xAI.</div><div class="contact-links">Questions? <a data-email href="mailto:aitheeasyway@gmail.com">aitheeasyway@gmail.com</a><br><a data-charlie href="mailto:charlie.si@mail.grokbot.com">charlie.si@mail.grokbot.com</a> (<span class="charlie-label">Charlie, Chris's AI chief of staff</span>)</div></div>
     <div style="display:flex;gap:22px;flex-wrap:wrap">
       <a data-msg href="https://m.me/aitheeasyway" target="_blank" rel="noopener">Messenger</a>
-      <a data-email href="mailto:aitheeasyway@gmail.com">aitheeasyway@gmail.com</a>
     </div>
   </div>
 </footer>
@@ -109,9 +109,13 @@
   if (s) {
     document.getElementById('ty-when').textContent = sessionWhen(s);
     document.getElementById('ty-where').textContent = formatLabel(s.format) + (s.place ? ' · ' + s.place : '');
+    const mapA = document.getElementById('ty-map');
+    if (mapA) { if (s.map) { mapA.hidden = false; mapA.href = s.map; } else mapA.hidden = true; }
   } else {
     document.getElementById('ty-when').textContent = online ? 'Next online (Zoom) session' : 'Next in-person session';
-    document.getElementById('ty-where').textContent = "Date announced soon. We'll email you as soon as it's set.";
+    document.getElementById('ty-where').textContent = "Date announced soon. Email us if you'd like a note when it's set.";
+    const mapB = document.getElementById('ty-map');
+    if (mapB) mapB.hidden = true;
   }
   if (online || (s && s.format === 'online')) document.getElementById('zoom-note').hidden = false;
 
@@ -160,7 +164,9 @@
   }
   document.querySelectorAll('[data-sales]').forEach(a => a.href = SALES_PAGE_URL);
   document.querySelectorAll('[data-msg]').forEach(a => a.href = MESSENGER_URL);
-  document.querySelectorAll('[data-email]').forEach(a => { a.href = 'mailto:' + CONTACT_EMAIL; a.textContent = CONTACT_EMAIL; });
+  document.querySelectorAll('[data-email]').forEach(a => { a.href = 'mailto:' + CONTACT_EMAIL; });
+  document.querySelectorAll('[data-charlie]').forEach(a => { a.href = 'mailto:' + CHARLIE_EMAIL; });
+  document.querySelectorAll('.charlie-label').forEach(el => { el.textContent = CHARLIE_LABEL; });
   document.getElementById('yr').textContent = new Date().getFullYear();
 })();
 </script>
