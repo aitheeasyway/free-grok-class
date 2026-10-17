@@ -18,7 +18,8 @@ const SESSIONS = [
     title: "In person · Osage Beach Library",
     date: "2026-10-21T12:00:00-05:00", // Wed Oct 21, 12:00 PM CT (CDT)
     minutes: 60,                       // 1-hour free class: 12:00 to 1:00 PM CT
-    place: "Osage Beach Library, Osage Beach, MO"
+    place: "Osage Beach Library, 1064 Gutridge Lane, Osage Beach, MO 65065", // Street address from Camden County Library District (ccld.us/locations-hours), checked Oct 16, 2026.
+    map: "https://www.google.com/maps/search/?api=1&query=1064+Gutridge+Lane,+Osage+Beach,+MO+65065"
   }
   // ,{
   //   id: "zoom-1",
@@ -52,9 +53,11 @@ const REG_FORM = {
 };
 
 /* ---- LINKS --------------------------------------------------------- */
-const SALES_PAGE_URL  = "http://mysihelpers.com/";   // hands-on AI Helpers class sales page (the "next level" buttons go here first). Switch to https once the cert is issued.
+const SALES_PAGE_URL  = "https://mysihelpers.com/";   // hands-on AI Helpers class sales page (the "next level" buttons go here first)
 const PAID_CLASS_URL  = "https://buy.stripe.com/8x2eV52QE9wM2PK5do8AE04"; // not linked on this site anymore (people see the sales page first); kept for reference. $97 hands-on AI Helpers setup class (Stripe)
 const CONTACT_EMAIL   = "aitheeasyway@gmail.com";
+const CHARLIE_EMAIL   = "charlie.si@mail.grokbot.com";
+const CHARLIE_LABEL   = "Charlie, Chris's AI chief of staff";
 const MESSENGER_URL   = "https://m.me/aitheeasyway";
 const X_URL           = "https://x.com/aitheeasyway";
 const FACEBOOK_URL    = "https://facebook.com/aitheeasyway";
