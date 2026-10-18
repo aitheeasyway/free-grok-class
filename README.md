@@ -1,4 +1,4 @@
-# Free Grok 101 · landing + registration (preview)
+# Free AI 101 · landing + registration (preview)
 
 Top-of-funnel free class page for AI the Easy Way. Static site on GitHub Pages.
 

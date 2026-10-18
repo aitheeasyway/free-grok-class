@@ -215,6 +215,18 @@ footer a:hover{color:var(--teal)}
 @media (max-width:720px){.upsell-box{grid-template-columns:1fr;padding:26px 22px}.tease-card{flex-direction:column;gap:12px}}
 .grok-tag{font-family:"Space Grotesk";font-weight:700;letter-spacing:.18em;font-size:12px;color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:4px 9px}
 .beginner-line{margin:0 0 14px;font-size:15px;font-weight:600;color:#d7e0ee}
+.where-line{margin:16px 0 0;font-size:14px;color:var(--muted);line-height:1.5;max-width:40em}
+.where-line a{color:var(--teal);text-decoration:none}
+.where-line a:hover{text-decoration:underline}
+.agenda{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.agenda .num{font-size:48px}
+.sticky-cta{display:none}
+@media(max-width:760px){
+  .sticky-cta{position:fixed;z-index:70;left:12px;right:12px;bottom:12px;display:flex;justify-content:center;box-shadow:0 12px 30px rgba(0,0,0,.45)}
+  .sticky-cta.is-hidden{display:none}
+  body{padding-bottom:84px}
+}
+@media(max-width:720px){.agenda{grid-template-columns:1fr}.agenda .num{font-size:40px}}
 .contact-links{margin-top:14px;font-size:14px;color:var(--muted);line-height:1.55;max-width:42em}
 .contact-links a{color:var(--teal);text-decoration:none;overflow-wrap:anywhere}
 .contact-links a:hover{text-decoration:underline}
@@ -252,7 +264,7 @@ footer a:hover{color:var(--teal)}
 .final .pill{width:fit-content;margin-inline:auto}
 @media (max-width:960px){
   .hero-grid .cta-row .btn-textlink{border-color:var(--line);padding-inline:20px;color:var(--text)}
-  .hero-grid{grid-template-columns:1fr;grid-template-areas:"top" "art" "body";text-align:center}
+  .hero-grid{grid-template-columns:1fr;grid-template-areas:"top" "body" "art";text-align:center}
   .hero-grid .pill{margin-inline:auto}
   .hero-grid .pill{margin-inline:auto}
   .hero-grid h1{margin:22px auto 6px;max-width:14ch}

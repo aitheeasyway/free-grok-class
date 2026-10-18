@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>You're registered · Free Grok 101 | AI the Easy Way</title>
+<title>You're registered · Free AI 101 | AI the Easy Way</title>
 <meta name="description" content="You're registered for the free class. Your class details are on this page.">
 <meta name="theme-color" content="#0a0f1f">
 <link rel="icon" href="favicon.ico" sizes="48x48">
@@ -28,7 +28,7 @@
 <nav>
   <div class="wrap">
     <a class="logo" href="index.html" aria-label="AI the Easy Way"><img class="logo-mark" src="assets/logo-ai-the-easy-way.webp" width="160" height="137" alt="AI the Easy Way"></a>
-    <div class="nav-links"><span class="grok-tag">FREE GROK 101</span><a href="index.html">Class details</a></div>
+    <div class="nav-links"><span class="grok-tag">FREE AI 101</span><a href="index.html">Class details</a></div>
   </div>
 </nav>
 
@@ -36,10 +36,10 @@
 <header class="ty-hero">
   <div class="wrap">
     <div class="ty-art" aria-hidden="true"><picture><source srcset="assets/helpers/helper-wave.webp" type="image/webp"><img src="assets/helpers/helper-wave.png" width="548" height="523" alt=""></picture></div>
-    <span class="eyebrow" style="margin-top:10px">Free Grok 101</span>
+    <span class="eyebrow" style="margin-top:10px">Free AI 101</span>
     <h1>You're <span class="grad-text">registered!</span> 🎉</h1>
     <p class="lede">Your seat is saved. You'll see class details right here.</p>
-    <div class="ty-sess" id="ty-sess"><b id="ty-when">Wed, Oct 21 · 12:00–1:00 PM CT</b><span id="ty-where">In person · Osage Beach Library, 1064 Gutridge Lane, Osage Beach, MO 65065</span> <a id="ty-map" href="https://www.google.com/maps/search/?api=1&query=1064+Gutridge+Lane,+Osage+Beach,+MO+65065" target="_blank" rel="noopener">Map</a></div>
+    <div class="ty-sess" id="ty-sess"><b id="ty-when">Wed, Oct 21, 2026 · 12:00–1:00 PM CT</b><span id="ty-where">In person · Osage Beach Library, 1064 Gutridge Ln, Osage Beach, MO 65065</span> <a id="ty-map" href="https://www.google.com/maps/search/?api=1&query=1064+Gutridge+Lane,+Osage+Beach,+MO+65065" target="_blank" rel="noopener">Map</a></div>
     <div class="cal-row" id="cal-row">
       <span class="badge" id="cal-soon">📅 Add-to-calendar link appears here once a date is set.</span>
     </div>
@@ -92,7 +92,7 @@
 
 <footer>
   <div class="wrap">
-    <div><a class="logo" href="index.html" aria-label="AI the Easy Way"><img class="logo-mark" src="assets/logo-ai-the-easy-way.webp" width="160" height="137" alt="AI the Easy Way"></a><div style="margin-top:10px">Lake of the Ozarks, Missouri · © <span id="yr">2026</span></div><div class="tm">Grok is a trademark of xAI. Independent, not affiliated with xAI.</div><div class="contact-links">Questions? <a data-email href="mailto:aitheeasyway@gmail.com">aitheeasyway@gmail.com</a><br><a data-charlie href="mailto:charlie.si@mail.grokbot.com">charlie.si@mail.grokbot.com</a> (<span class="charlie-label">Charlie, Chris's AI chief of staff</span>)</div></div>
+    <div><a class="logo" href="index.html" aria-label="AI the Easy Way"><img class="logo-mark" src="assets/logo-ai-the-easy-way.webp" width="160" height="137" alt="AI the Easy Way"></a><div style="margin-top:10px">Lake of the Ozarks, Missouri · © <span id="yr">2026</span></div><div class="tm">Grok is a trademark of xAI. Independent, not affiliated with xAI.</div><div class="contact-links">Questions? <a data-email href="mailto:aitheeasyway@gmail.com">aitheeasyway@gmail.com</a><br><a data-charlie href="mailto:charlie.si@mail.grokbot.com">charlie.si@mail.grokbot.com</a> (<span class="charlie-label">Charlie, Chris's AI assistant</span>)</div></div>
     <div style="display:flex;gap:22px;flex-wrap:wrap">
       <a data-msg href="https://m.me/aitheeasyway" target="_blank" rel="noopener">Messenger</a>
     </div>
@@ -123,13 +123,13 @@
   if (s && s.date && !isNaN(new Date(s.date))) {
     const start = new Date(s.date), end = new Date(start.getTime() + (s.minutes||60)*60000);
     const z = d => d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
-    const title = 'Free Grok 101 with Chris Booth';
+    const title = 'Free AI 101 with Chris Booth';
     const site = location.origin + location.pathname.replace(/thanks\.html$/,'');
-    const details = 'Free Grok 101 with Chris Booth: a free, beginner-friendly AI workshop. No tech skills needed. Come learn how Grok and AI helpers can save you time. Bring your phone or laptop. Osage Beach Library. ' + site;
-    const where = s.format === 'online' ? 'Online (Zoom), link sent by email' : (s.place || s.title);
+    const details = 'Free AI 101 with Chris Booth: a free, beginner-friendly workshop. No tech skills needed. Ask better questions, write posts and emails faster, and save time every week. Bring your phone or laptop. Osage Beach Library, 1064 Gutridge Ln, Osage Beach, MO 65065. ' + site;
+    const where = s.format === 'online' ? 'Online (Zoom)' : (s.place || s.title);
     const g = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(title) + '&dates=' + z(start) + '/' + z(end) + '&details=' + encodeURIComponent(details) + '&location=' + encodeURIComponent(where) + '&ctz=America/Chicago';
     const icsEsc = t => String(t).replace(/\\/g,'\\\\').replace(/([,;])/g,'\\$1').replace(/\n/g,'\\n');
-    const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//AI the Easy Way//Free Grok 101//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH','BEGIN:VEVENT','UID:'+s.id+'-free-grok-101@aitheeasyway','DTSTAMP:'+z(new Date()),'DTSTART:'+z(start),'DTEND:'+z(end),'SUMMARY:'+icsEsc(title),'LOCATION:'+icsEsc(where),'DESCRIPTION:'+icsEsc(details),'URL:'+site,'BEGIN:VALARM','TRIGGER:-PT1H','ACTION:DISPLAY','DESCRIPTION:Free Grok 101 starts in 1 hour','END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n');
+    const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//AI the Easy Way//Free AI 101//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH','BEGIN:VEVENT','UID:'+s.id+'-free-grok-101@aitheeasyway','DTSTAMP:'+z(new Date()),'DTSTART:'+z(start),'DTEND:'+z(end),'SUMMARY:'+icsEsc(title),'LOCATION:'+icsEsc(where),'DESCRIPTION:'+icsEsc(details),'URL:'+site,'BEGIN:VALARM','TRIGGER:-PT1H','ACTION:DISPLAY','DESCRIPTION:Free AI 101 starts in 1 hour','END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n');
     const icsUrl = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
     document.getElementById('cal-row').innerHTML = `<a class="btn btn-primary btn-sm" href="${g}" target="_blank" rel="noopener">📅 Add to Google Calendar</a><a class="btn btn-ghost btn-sm" href="${icsUrl}" download="free-grok-101.ics">Apple / Outlook (.ics)</a>`;
 
