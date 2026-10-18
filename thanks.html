@@ -13,9 +13,8 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
@@ -39,7 +38,7 @@
     <span class="eyebrow" style="margin-top:10px">Free Grok 101</span>
     <h1>You're <span class="grad-text">registered!</span> 🎉</h1>
     <p class="lede">Your seat is saved. You'll see class details right here.</p>
-    <div class="ty-sess" id="ty-sess"><b id="ty-when">Wed, Oct 21 · 12:00–1:00 PM CT</b><span id="ty-where">In person · Osage Beach Library, 1064 Gutridge Lane, Osage Beach, MO 65065</span> <a id="ty-map" href="https://www.google.com/maps/search/?api=1&query=1064+Gutridge+Lane,+Osage+Beach,+MO+65065" target="_blank" rel="noopener">Map</a></div>
+    <div class="ty-sess" id="ty-sess"><b id="ty-when">Wed, Oct 21, 2026 · 12:00–1:00 PM CT</b><span id="ty-where">In person · Osage Beach Library, 1064 Gutridge Ln, Osage Beach, MO 65065</span> <a id="ty-map" href="https://www.google.com/maps/search/?api=1&query=1064+Gutridge+Lane,+Osage+Beach,+MO+65065" target="_blank" rel="noopener">Map</a></div>
     <div class="cal-row" id="cal-row">
       <span class="badge" id="cal-soon">📅 Add-to-calendar link appears here once a date is set.</span>
     </div>
@@ -92,7 +91,7 @@
 
 <footer>
   <div class="wrap">
-    <div><a class="logo" href="index.html" aria-label="AI the Easy Way"><img class="logo-mark" src="assets/logo-ai-the-easy-way.webp" width="160" height="137" alt="AI the Easy Way"></a><div style="margin-top:10px">Lake of the Ozarks, Missouri · © <span id="yr">2026</span></div><div class="tm">Grok is a trademark of xAI. Independent, not affiliated with xAI.</div><div class="contact-links">Questions? <a data-email href="mailto:aitheeasyway@gmail.com">aitheeasyway@gmail.com</a><br><a data-charlie href="mailto:charlie.si@mail.grokbot.com">charlie.si@mail.grokbot.com</a> (<span class="charlie-label">Charlie, Chris's AI chief of staff</span>)</div></div>
+    <div><a class="logo" href="index.html" aria-label="AI the Easy Way"><img class="logo-mark" src="assets/logo-ai-the-easy-way.webp" width="160" height="137" alt="AI the Easy Way"></a><div style="margin-top:10px">Lake of the Ozarks, Missouri · © <span id="yr">2026</span></div><div class="tm">Grok is a trademark of xAI. Independent, not affiliated with xAI.</div><div class="contact-links">Questions? <a data-email href="mailto:aitheeasyway@gmail.com">aitheeasyway@gmail.com</a><br><a data-charlie href="mailto:charlie.si@mail.grokbot.com">charlie.si@mail.grokbot.com</a> (<span class="charlie-label">Charlie, Chris's AI assistant</span>)</div></div>
     <div style="display:flex;gap:22px;flex-wrap:wrap">
       <a data-msg href="https://m.me/aitheeasyway" target="_blank" rel="noopener">Messenger</a>
     </div>
@@ -125,8 +124,8 @@
     const z = d => d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
     const title = 'Free Grok 101 with Chris Booth';
     const site = location.origin + location.pathname.replace(/thanks\.html$/,'');
-    const details = 'Free Grok 101 with Chris Booth: a free, beginner-friendly AI workshop. No tech skills needed. Come learn how Grok and AI helpers can save you time. Bring your phone or laptop. Osage Beach Library. ' + site;
-    const where = s.format === 'online' ? 'Online (Zoom), link sent by email' : (s.place || s.title);
+    const details = 'Free Grok 101 with Chris Booth: a free, beginner-friendly workshop. No tech skills needed. Ask better questions, write posts and emails faster, and save time every week. Bring your phone or laptop. Osage Beach Library, 1064 Gutridge Ln, Osage Beach, MO 65065. ' + site;
+    const where = s.format === 'online' ? 'Online (Zoom)' : (s.place || s.title);
     const g = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(title) + '&dates=' + z(start) + '/' + z(end) + '&details=' + encodeURIComponent(details) + '&location=' + encodeURIComponent(where) + '&ctz=America/Chicago';
     const icsEsc = t => String(t).replace(/\\/g,'\\\\').replace(/([,;])/g,'\\$1').replace(/\n/g,'\\n');
     const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//AI the Easy Way//Free Grok 101//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH','BEGIN:VEVENT','UID:'+s.id+'-free-grok-101@aitheeasyway','DTSTAMP:'+z(new Date()),'DTSTART:'+z(start),'DTEND:'+z(end),'SUMMARY:'+icsEsc(title),'LOCATION:'+icsEsc(where),'DESCRIPTION:'+icsEsc(details),'URL:'+site,'BEGIN:VALARM','TRIGGER:-PT1H','ACTION:DISPLAY','DESCRIPTION:Free Grok 101 starts in 1 hour','END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n');
