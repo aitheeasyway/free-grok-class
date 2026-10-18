@@ -6,19 +6,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="canonical" href="https://free.mysihelpers.com/">
-<title>Free AI 101: Get More Out of Grok in One Hour | AI the Easy Way</title>
+<title>Free Grok 101: Get More Out of Grok in One Hour | AI the Easy Way</title>
 <meta name="description" content="A free, beginner-friendly workshop with Chris Booth. Wed, Oct 21, 2026, 12:00 to 1:00 PM CT at Osage Beach Library. No tech skills needed. Reserve your free seat.">
-<meta property="og:title" content="Free AI 101: Get More Out of Grok in One Hour">
+<meta property="og:title" content="Free Grok 101: Get More Out of Grok in One Hour">
 <meta property="og:description" content="A free, beginner-friendly workshop. Wed, Oct 21, 2026, 12:00 to 1:00 PM CT at Osage Beach Library. No tech skills needed. Reserve your free seat.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://free.mysihelpers.com/">
 <meta property="og:image" content="https://free.mysihelpers.com/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Free AI 101: Get more out of Grok in one hour. Osage Beach Library, Wed, Oct 21, 2026, 12:00 to 1:00 PM CT.">
+<meta property="og:image:alt" content="Free Grok 101: Get more out of Grok in one hour. Osage Beach Library, Wed, Oct 21, 2026, 12:00 to 1:00 PM CT.">
 <meta property="og:site_name" content="AI the Easy Way">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Free AI 101: Get More Out of Grok in One Hour">
+<meta name="twitter:title" content="Free Grok 101: Get More Out of Grok in One Hour">
 <meta name="twitter:description" content="A free, beginner-friendly workshop. Wed, Oct 21, 2026, 12:00 to 1:00 PM CT at Osage Beach Library. Reserve your free seat.">
 <meta name="twitter:image" content="https://free.mysihelpers.com/assets/og-image.jpg">
 <meta name="theme-color" content="#0a0f1f">
@@ -26,9 +26,8 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
@@ -46,7 +45,7 @@
   <div class="wrap">
     <a class="logo" href="#top" aria-label="AI the Easy Way"><img class="logo-mark" src="assets/logo-ai-the-easy-way.webp" width="160" height="137" alt="AI the Easy Way"></a>
     <div class="nav-links">
-      <span class="grok-tag">FREE AI 101</span>
+      <span class="grok-tag">FREE GROK 101</span>
       <a href="#learn">What you'll learn</a>
       <a href="#agenda">The hour</a>
       <a href="#guide">About Chris</a>
@@ -63,7 +62,7 @@
     <div class="hero-grid">
       <div class="hero-top">
         <p class="beginner-line">Hosted by Chris Booth · AI the Easy Way</p>
-        <span class="pill"><span class="pulse"></span><span class="pill-txt"><b>Free AI 101 · <span class="nw">1-hour workshop</span></b><span id="hero-when">In person · Osage Beach Library · Wed, Oct 21, 2026 · 12:00–1:00 PM CT</span></span></span>
+        <span class="pill"><span class="pulse"></span><span class="pill-txt"><b>Free Grok 101 · <span class="nw">1-hour workshop</span></b><span id="hero-when">In person · Osage Beach Library · Wed, Oct 21, 2026 · 12:00–1:00 PM CT</span></span></span>
         <h1>Get more out of <span class="grok-word">Grok</span> <span class="grad-text">in one hour.</span></h1>
         <p class="sub">A free, beginner-friendly workshop. No tech skills needed.</p>
       </div>
@@ -321,7 +320,7 @@
 <section class="final">
   <div class="wrap">
     <div class="final-box reveal">
-      <span class="pill" style="margin-bottom:22px"><span class="pulse"></span><span class="pill-txt"><b>Free AI 101 · <span class="nw">1-hour workshop</span></b><span class="final-when">In person · Osage Beach Library · Wed, Oct 21, 2026 · 12:00–1:00 PM CT</span></span></span>
+      <span class="pill" style="margin-bottom:22px"><span class="pulse"></span><span class="pill-txt"><b>Free Grok 101 · <span class="nw">1-hour workshop</span></b><span class="final-when">In person · Osage Beach Library · Wed, Oct 21, 2026 · 12:00–1:00 PM CT</span></span></span>
       <h2>Ready to get more out of <span class="grad-text">Grok?</span></h2>
       <p>Free workshop. No tech skills needed. Bring your phone or laptop.</p>
       <div class="cta-row">
@@ -437,7 +436,7 @@
       const body = `Please reserve my free seat.\n\nName: ${d.name}\nEmail: ${d.email}\nPhone: ${d.phone||'-'}\nBusiness: ${d.business||'-'}\nFormat: ${d.format}\nSession: ${sessText}`;
       status.textContent = "Hmm, that didn't go through. We opened an email so you can send it to us instead.";
       btn.disabled = false; btn.innerHTML = btnHtml;
-      location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent('Free AI 101 registration: ' + d.name) + '&body=' + encodeURIComponent(body);
+      location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent('Free Grok 101 registration: ' + d.name) + '&body=' + encodeURIComponent(body);
     };
     if (!REG_FORM.action) { mailtoFallback(); return; }
     // Post straight into the Google Form (responses land in the form owner's account)
